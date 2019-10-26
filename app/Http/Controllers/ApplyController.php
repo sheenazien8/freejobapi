@@ -63,9 +63,6 @@ class ApplyController extends Controller
 
     private function uploadCV($file, $pathname = null)
     {
-        if ($pathname) {
-            Storage::disk('s3')->delete();
-        }
         $carbon = new Carbon();
         $filename = $carbon->now()->format('CVYmdhis').'.'.$file->getClientOriginalExtension();
         Storage::disk('local')->putFileAs(
