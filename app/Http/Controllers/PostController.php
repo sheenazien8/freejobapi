@@ -21,7 +21,7 @@ class PostController extends Controller
             if ($auth->userable instanceof Company) {
                 $posts = Post::where('company_id', $auth->userable->id)->paginate();
             }else {
-                $posts = Post::paginate();
+                $posts = Post::where('published', true)->paginate();
             }
         }
 
@@ -55,6 +55,17 @@ class PostController extends Controller
         ]);
     }
 
+    public function detail(Request $request, $post)
+    {
+        $post = Post::findOrFail($post);
+
+        return response()->json([
+            'message' => 'OK',
+            'data' => $post,
+            'success' => true
+        ]);
+    }
+
     public function update(Request $request, $post)
     {
         $this->validate($request, [
@@ -66,7 +77,7 @@ class PostController extends Controller
             'due_date_applied' => 'required',
         ]);
         $auth = Auth::user($request);
-        $post = Post::find($post);
+        $post = Post::findOrFail($post);
         $post->fill($request->all());
         $post->company()->associate($auth->userable->id);
         $post->save();
@@ -78,9 +89,26 @@ class PostController extends Controller
         ]);
     }
 
+    public function updateStatus(Request $request, $post)
+    {
+        $this->validate($request, [
+            'published' => 'required'
+        ]);
+        $auth = Auth::user($request);
+        $post = Post::findOrFail($post);
+        $post->published = $request->published;
+        $post->save();
+
+        return response()->json([
+            'message' => 'Success Update Post',
+            'data' => $post,
+            'success' => true
+        ]);
+    }
+
     public function delete($post)
     {
-        $post = Post::find($post)->delete();
+        $post = Post::findOrFail($post)->delete();
 
         return response()->json([
             'message' => 'Success Deleted Post',
@@ -100,7 +128,7 @@ class PostController extends Controller
             if ($auth->userable instanceof Company) {
                 $posts = Post::where('company_id', $auth->userable->id)->paginate();
             }else {
-                $posts = Post::paginate();
+                $posts = Post::where('published', true)->paginate();
             }
         }
 

@@ -58,11 +58,14 @@ $app->singleton(
 */
 
 $app->middleware([
-    App\Http\Middleware\ExampleMiddleware::class
+    App\Http\Middleware\ExampleMiddleware::class,
+    App\Http\Middleware\CORSMiddleware::class
 ]);
 
 $app->routeMiddleware([
-    'authenticated' => App\Http\Middleware\Authenticate::class
+    'authenticated' => App\Http\Middleware\Authenticate::class,
+    'checkrole' => App\Http\Middleware\CheckRoleUser::class,
+    'checkfreelancer' => App\Http\Middleware\CheckFreelancerUser::class
 ]);
 
 /*

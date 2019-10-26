@@ -31,4 +31,9 @@ class Freelancer extends Model
     {
         return $this->morphOne(User::class);
     }
+
+    public function experiences()
+    {
+        return $this->hasMany(Experience::class);
+    }
 }

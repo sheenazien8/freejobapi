@@ -44,8 +44,46 @@ $router->group(['middleware' => 'authenticated'], function ($router)
         $router->get('/', ['uses' => 'PostController@index']);
         $router->get('/all', ['uses' => 'PostController@all']);
         $router->get('/{post}', ['uses' => 'PostController@detail']);
-        $router->post('/', ['uses' => 'PostController@create']);
-        $router->put('/{post}', ['uses' => 'PostController@update']);
-        $router->delete('/{post}', ['uses' => 'PostController@delete']);
+        $router->post('/', [
+            'uses' => 'PostController@create',
+            'middleware' => 'checkrole'
+        ]);
+        $router->put('/{post}', [
+            'uses' => 'PostController@update',
+            'middleware' => 'checkrole'
+        ]);
+        $router->put('/{post}/status/', [
+            'uses' => 'PostController@updateStatus',
+            'middleware' => 'checkrole'
+        ]);
+        $router->delete('/{post}', [
+            'uses' => 'PostController@delete',
+            'middleware' => 'checkrole'
+        ]);
+    });
+
+    $router->group(['prefix' => 'apply'], function ($router)
+    {
+        $router->get('/', ['uses' => 'ApplyController@index']);
+        $router->put('/{post}/{apply}', [
+            'uses' => 'ApplyController@update',
+            'middleware' => 'checkfreelancer'
+        ]);
+        $router->post('/{post}', [
+            'uses' => 'ApplyController@create',
+            'middleware' => 'checkfreelancer'
+        ]);
+        $router->delete('/{post}', [
+            'uses' => 'ApplyController@delete',
+            'middleware' => 'checkfreelancer'
+        ]);
+    });
+
+    $router->group(['prefix' => 'experience'], function ($router)
+    {
+        $router->get('/', ['uses' => 'ExperienceController@index']);
+        $router->post('/', ['uses' => 'ExperienceController@create']);
+        $router->put('/{experience}', ['uses' => 'ExperienceController@update']);
+        $router->delete('/{experience}', ['uses' => 'ExperienceController@delete']);
     });
 });
