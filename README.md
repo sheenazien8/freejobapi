@@ -19,5 +19,7 @@ create random string for APP_KEY in .env (ASAsknoidfKKKjsdahaskIas)
 and finalyy setting database
 
 ```
+### run app
+```php -S localhost:8000 -t public```
 
 API ready to use
