@@ -1,0 +1,895 @@
+{
+	"info": {
+		"_postman_id": "fa586f46-c684-4ba9-93f5-fadec7907cd9",
+		"name": "ajobthingtest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\" : \"sheenazienfreelancer\",\n\t\"email\" : \"sheenazienfreelancer@gmail.com\",\n\t\"password\" : 12345678\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "ajobthingtest.deb/auth/register",
+							"host": [
+								"ajobthingtest",
+								"deb"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"sheenazienfreelancer\",\n\t\"password\": 12345678\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "ajobthingtest.deb/auth/login",
+							"host": [
+								"ajobthingtest",
+								"deb"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "post",
+			"item": [
+				{
+					"name": "Get Post With Paginate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "F4ecQRURQ9uZKP4BdfBRRqoCxpuy1SuEFLCjQG8Mu3nMAdpTo8dG9rGtEWcOam229lUCY13hFLLpYSzwnix05bcY1rInmmB5xFsJAFSHzRqEsgXNTJREYp3T",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "ajobthingtest.deb/post",
+							"host": [
+								"ajobthingtest",
+								"deb"
+							],
+							"path": [
+								"post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ZLGbehOR7lxoLecwBhnPyTvJ9x2ygPoHKXBEIi0wV3lFPQusbiddA3Q1j8CIlwa75j1Qty4ZJ7KYXZHkRytywIQD0zejPlyjKt0FN3ZD8K6D56lm2LqohPYn",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Senior Front End Developer\",\n\t\"description\": \"blablabla\",\n\t\"location\": \"Yogyakarta\",\n\t\"start_range_salary\": \"200000\",\n\t\"end_range_salary\": \"500000\",\n\t\"experience\": \"minimal pengalaman 2 tahun\",\n\t\"due_date_applied\": \"2019-10-29\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "ajobthingtest.deb/post",
+							"host": [
+								"ajobthingtest",
+								"deb"
+							],
+							"path": [
+								"post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "lcCLAhribwuerTOYp15ONLAXLM7zzkRkUsL6GzRvGYyS13yN2qFCkjbVs8KuNYjTzCXsVjzO13YNWCVEEPD6uUhpqahKb40VcUbc90tDB0T1JviasYrr4Frw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Senior Front End Developer\",\n\t\"description\": \"blablabla\",\n\t\"location\": \"Yogyakarta\",\n\t\"start_range_salary\": \"300000\",\n\t\"end_range_salary\": \"500000\",\n\t\"experience\": \"minimal pengalaman 2 tahun\",\n\t\"due_date_applied\": \"2019-10-29\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "ajobthingtest.deb/post/1",
+							"host": [
+								"ajobthingtest",
+								"deb"
+							],
+							"path": [
+								"post",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "lcCLAhribwuerTOYp15ONLAXLM7zzkRkUsL6GzRvGYyS13yN2qFCkjbVs8KuNYjTzCXsVjzO13YNWCVEEPD6uUhpqahKb40VcUbc90tDB0T1JviasYrr4Frw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "ajobthingtest.deb/post/1",
+							"host": [
+								"ajobthingtest",
+								"deb"
+							],
+							"path": [
+								"post",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "lcCLAhribwuerTOYp15ONLAXLM7zzkRkUsL6GzRvGYyS13yN2qFCkjbVs8KuNYjTzCXsVjzO13YNWCVEEPD6uUhpqahKb40VcUbc90tDB0T1JviasYrr4Frw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "ajobthingtest.deb/post/all",
+							"host": [
+								"ajobthingtest",
+								"deb"
+							],
+							"path": [
+								"post",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Status Published POST",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ZLGbehOR7lxoLecwBhnPyTvJ9x2ygPoHKXBEIi0wV3lFPQusbiddA3Q1j8CIlwa75j1Qty4ZJ7KYXZHkRytywIQD0zejPlyjKt0FN3ZD8K6D56lm2LqohPYn",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"published\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "ajobthingtest.deb/post/3/status",
+							"host": [
+								"ajobthingtest",
+								"deb"
+							],
+							"path": [
+								"post",
+								"3",
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "company",
+			"item": [
+				{
+					"name": "Create Company",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "lcCLAhribwuerTOYp15ONLAXLM7zzkRkUsL6GzRvGYyS13yN2qFCkjbVs8KuNYjTzCXsVjzO13YNWCVEEPD6uUhpqahKb40VcUbc90tDB0T1JviasYrr4Frw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"En En Software\",\n\t\"company_size\": \"15 sampai 30 orang\",\n\t\"description\": \"Perusahaan Ini bergerak dibidang pengembangan software\",\n\t\"languages\": \"Bahasa Indonesia\",\n\t\"address\": \"Jl Kriyan\",\n\t\"phone\": \"089638706830\",\n\t\"website\": \"sheenazien.xyz\",\n\t\"facebook\": \"https://facebook.com\",\n\t\"instagram\": \"https://instagram.com\",\n\t\"twitter\": \"https://twitter.com\",\n\t\"work_time\": \"Senin Sampai Jumat\",\n\t\"wear_style\": \"Bebas\",\n\t\"tunjangan\": \"BPJS, Pendidikan untuk keluarga\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "ajobthingtest.deb/company",
+							"host": [
+								"ajobthingtest",
+								"deb"
+							],
+							"path": [
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Company Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "lcCLAhribwuerTOYp15ONLAXLM7zzkRkUsL6GzRvGYyS13yN2qFCkjbVs8KuNYjTzCXsVjzO13YNWCVEEPD6uUhpqahKb40VcUbc90tDB0T1JviasYrr4Frw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "ajobthingtest.deb/company",
+							"host": [
+								"ajobthingtest",
+								"deb"
+							],
+							"path": [
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Company",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "HToccSfpUZXolASezNk5vf4uVlrDnBl1bC1TE3jELu42rx3jgkFfWvdy9PlSHmB5EijpRBaZSH98tPcV3tKyTroa02nWHwJ5ZVcxWomKLeL3hw9rG5zBRZVL",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"En En Software\",\n\t\"company_size\": \"15 sampai 40 orang\",\n\t\"description\": \"Perusahaan Ini bergerak dibidang pengembangan software\",\n\t\"languages\": \"Bahasa Indonesia\",\n\t\"address\": \"Jl Kriyan\",\n\t\"phone\": \"089638706830\",\n\t\"website\": \"sheenazien.xyz\",\n\t\"facebook\": \"https://facebook.com\",\n\t\"instagram\": \"https://instagram.com\",\n\t\"twitter\": \"https://twitter.com\",\n\t\"work_time\": \"Senin Sampai Jumat\",\n\t\"wear_style\": \"Bebas\",\n\t\"tunjangan\": \"BPJS, Pendidikan untuk keluarga\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "ajobthingtest.deb/company",
+							"host": [
+								"ajobthingtest",
+								"deb"
+							],
+							"path": [
+								"company"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "freelancer",
+			"item": [
+				{
+					"name": "Get Freelancer Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "nLPjOcjGQ2bXb2ZC3Oh2H6IZZ1C9e88O8Fk2jRH2cnD7mTUuktStPwWHo6xjzMC9wGoRzIajnsrbyOgk1hYv8tEnbVbmDoHO0vj4jsuQeiHp4JX3QbipO263",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "ajobthingtest.deb/freelancer",
+							"host": [
+								"ajobthingtest",
+								"deb"
+							],
+							"path": [
+								"freelancer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Freelancer Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "nLPjOcjGQ2bXb2ZC3Oh2H6IZZ1C9e88O8Fk2jRH2cnD7mTUuktStPwWHo6xjzMC9wGoRzIajnsrbyOgk1hYv8tEnbVbmDoHO0vj4jsuQeiHp4JX3QbipO263",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"full_name\": \"Sheena Muhammad Ali Zien\",\n\t\"bio\": \"Im a Programmer\",\n\t\"expected_salary\": \"500000\",\n\t\"gender\": \"l\",\n\t\"birth_date\": \"1997-12-09\",\n\t\"nationality\": \"Indonesia\",\n\t\"languages\": \"Bahasa Indonesia\",\n\t\"skills\": \"Php, Javascript, Laravel, Vuejs\",\n\t\"last_education\": \"SMA Negeri 01 Welahan\",\n\t\"image\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "ajobthingtest.deb/freelancer",
+							"host": [
+								"ajobthingtest",
+								"deb"
+							],
+							"path": [
+								"freelancer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Freelancer Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "nLPjOcjGQ2bXb2ZC3Oh2H6IZZ1C9e88O8Fk2jRH2cnD7mTUuktStPwWHo6xjzMC9wGoRzIajnsrbyOgk1hYv8tEnbVbmDoHO0vj4jsuQeiHp4JX3QbipO263",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"full_name\": \"Sheena Muhammad Ali Zien\",\n\t\"bio\": \"Im a Programmer\",\n\t\"expected_salary\": \"500000\",\n\t\"gender\": \"l\",\n\t\"birth_date\": \"1997-12-29\",\n\t\"nationality\": \"Indonesia\",\n\t\"languages\": \"Bahasa Indonesia\",\n\t\"skills\": \"Php, Javascript, Laravel, Vuejs\",\n\t\"last_education\": \"SMA Negeri 01 Welahan\",\n\t\"image\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "ajobthingtest.deb/freelancer",
+							"host": [
+								"ajobthingtest",
+								"deb"
+							],
+							"path": [
+								"freelancer"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "apply",
+			"item": [
+				{
+					"name": "Apply Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "F4ecQRURQ9uZKP4BdfBRRqoCxpuy1SuEFLCjQG8Mu3nMAdpTo8dG9rGtEWcOam229lUCY13hFLLpYSzwnix05bcY1rInmmB5xFsJAFSHzRqEsgXNTJREYp3T",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "why",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "CV",
+									"type": "file",
+									"src": "/home/zien/Documents/bukuku.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "ajobthingtest.deb/apply/3",
+							"host": [
+								"ajobthingtest",
+								"deb"
+							],
+							"path": [
+								"apply",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Apply Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "hj8Xu43FreTopMbh8IuUfcvg1FrG5mICAzRF5XAbjS2SRMDQRFlgTQjbKTicSGRIF4CfU3CzLpbFUcwfc2sL2346eq2Lh4P2MfnCOD5K8TgpuXlcybrmqWrO",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "CV",
+									"type": "file",
+									"src": "/home/zien/Downloads/[Ukuran asli] Sheena Muhammad Ali Zien.jpg"
+								},
+								{
+									"key": "why",
+									"value": "",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "ajobthingtest.deb/apply/2/3",
+							"host": [
+								"ajobthingtest",
+								"deb"
+							],
+							"path": [
+								"apply",
+								"2",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Applied Job",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "sn7rPi57v4cF8GTXO7VF0bqhUr69n2qboZSQBzBBzSHvkXvwbOwDHNP8GlYuCEdw9DANalCao2IO7tuIxyANu8GNlD93Bcg8TOUfsRjC25puAgVt3Y60hvps",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "ajobthingtest.deb/apply",
+							"host": [
+								"ajobthingtest",
+								"deb"
+							],
+							"path": [
+								"apply"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Apply",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "sn7rPi57v4cF8GTXO7VF0bqhUr69n2qboZSQBzBBzSHvkXvwbOwDHNP8GlYuCEdw9DANalCao2IO7tuIxyANu8GNlD93Bcg8TOUfsRjC25puAgVt3Y60hvps",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "ajobthingtest.deb/apply/3",
+							"host": [
+								"ajobthingtest",
+								"deb"
+							],
+							"path": [
+								"apply",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Experience",
+			"item": [
+				{
+					"name": "Delete Experience",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2qHvsKMjjkwPohvoD81YBb3BTvX6X8yk5BFGShPbn1ZSSlzSGi4Vw0LNJjxavVzcV6ITILbIeT8b1dGfU3KbSQ8zN2UdO3sKi8Bu1f6TWFc5PKNUgD3uaFcl",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "ajobthingtest.deb/experience/",
+							"host": [
+								"ajobthingtest",
+								"deb"
+							],
+							"path": [
+								"experience",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Experience",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2qHvsKMjjkwPohvoD81YBb3BTvX6X8yk5BFGShPbn1ZSSlzSGi4Vw0LNJjxavVzcV6ITILbIeT8b1dGfU3KbSQ8zN2UdO3sKi8Bu1f6TWFc5PKNUgD3uaFcl",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "ajobthingtest.deb/experience",
+							"host": [
+								"ajobthingtest",
+								"deb"
+							],
+							"path": [
+								"experience"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Experience",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2qHvsKMjjkwPohvoD81YBb3BTvX6X8yk5BFGShPbn1ZSSlzSGi4Vw0LNJjxavVzcV6ITILbIeT8b1dGfU3KbSQ8zN2UdO3sKi8Bu1f6TWFc5PKNUgD3uaFcl",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"company_name\": \"Geek Garden\",\n\t\"start_work\": \"2018-09-03\",\n\t\"end_work\": \"2019-10-20\",\n\t\"currently_work_here\": false,\n\t\"position\": \"Lead Programmer\",\n\t\"salary\": \"500000\",\n\t\"job_description\": \"blablabla\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "ajobthingtest.deb/experience",
+							"host": [
+								"ajobthingtest",
+								"deb"
+							],
+							"path": [
+								"experience"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Experience",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2qHvsKMjjkwPohvoD81YBb3BTvX6X8yk5BFGShPbn1ZSSlzSGi4Vw0LNJjxavVzcV6ITILbIeT8b1dGfU3KbSQ8zN2UdO3sKi8Bu1f6TWFc5PKNUgD3uaFcl",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"company_name\": \"Geek Garden\",\n\t\"start_work\": \"2018-09-03\",\n\t\"end_work\": \"2019-10-20\",\n\t\"currently_work_here\": false,\n\t\"position\": \"Lead Programmer\",\n\t\"salary\": \"500000\",\n\t\"job_description\": \"blablabla\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "ajobthingtest.deb/experience/1",
+							"host": [
+								"ajobthingtest",
+								"deb"
+							],
+							"path": [
+								"experience",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Test Connection",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "ajobthingtest.deb",
+					"host": [
+						"ajobthingtest",
+						"deb"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
