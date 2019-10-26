@@ -20,7 +20,6 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('api_token')->nullable()->unique();
             $table->datetime('expired_token')->nullable();
-            $table->string('role', 16)->nullable();
             $table->nullableMorphs('userable');
             $table->timestamps();
         });

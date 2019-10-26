@@ -21,7 +21,7 @@ class Authenticate
         $token = $request->header('Authorization');
         if (!$token) {
             return response()->json([
-                'message' => 'Unauthorize',
+                'message' => 'Unauthorized',
                 'success' => false
             ], 401);
         }
@@ -43,7 +43,7 @@ class Authenticate
             }
         }else {
             return response()->json([
-                'message' => 'Unauthorize',
+                'message' => 'Token Is Not Valid',
                 'success' => false
             ], 401);
         }

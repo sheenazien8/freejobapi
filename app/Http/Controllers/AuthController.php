@@ -45,7 +45,7 @@ class AuthController extends Controller
             $checkPassword = app('hash')->check($request->password, $user->password);
             if ($checkPassword) {
                 $user->api_token = $token;
-                $user->expired_token = $expired_token;
+                $user->expired_token = $expiredToken;
                 $user->save();
 
                 return response()->json([

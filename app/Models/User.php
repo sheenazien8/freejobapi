@@ -29,4 +29,12 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     protected $hidden = [
         'password',
     ];
+
+    /**
+     * Get the owning userable model.
+     */
+    public function userable()
+    {
+        return $this->morphTo();
+    }
 }

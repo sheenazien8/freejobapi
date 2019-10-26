@@ -17,7 +17,7 @@ class CreateFreelancersTable extends Migration
             $table->bigIncrements('id');
             $table->string('full_name');
             $table->text('bio');
-            $table->string('expected_salary');
+            $table->double('expected_salary');
             $table->string('gender');
             $table->string('birth_date');
             $table->string('nationality');

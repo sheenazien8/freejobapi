@@ -19,9 +19,10 @@ class CreatePostsTable extends Migration
             $table->bigInteger('company_id')->unsigned();
             $table->text('description');
             $table->string('location');
-            $table->string('range_salary');
+            $table->double('start_range_salary');
+            $table->double('end_range_salary')->nullable();
             $table->string('experience');
-            $table->string('due_date_applied');
+            $table->date('due_date_applied');
 
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->timestamps();
