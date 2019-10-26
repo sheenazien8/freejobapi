@@ -22,3 +22,7 @@ $router->group(['prefix' => 'auth'], function ($router)
     $router->post('/register', ['uses' => 'AuthController@register']);
     $router->post('/login', ['uses' => 'AuthController@login']);
 });
+
+$router->group(['middleware' => 'authenticated', 'prefix' => 'post'], function ($router)
+{
+});

@@ -2,43 +2,50 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\User;
+use Carbon\Carbon;
 use Closure;
 use Illuminate\Contracts\Auth\Factory as Auth;
 
 class Authenticate
 {
     /**
-     * The authentication guard factory instance.
-     *
-     * @var \Illuminate\Contracts\Auth\Factory
-     */
-    protected $auth;
-
-    /**
-     * Create a new middleware instance.
-     *
-     * @param  \Illuminate\Contracts\Auth\Factory  $auth
-     * @return void
-     */
-    public function __construct(Auth $auth)
-    {
-        $this->auth = $auth;
-    }
-
-    /**
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
-     * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = null)
+    public function handle($request, Closure $next)
     {
-        if ($this->auth->guard($guard)->guest()) {
-            return response('Unauthorized.', 401);
+        $token = $request->header('Authorization');
+        if (!$token) {
+            return response()->json([
+                'message' => 'Unauthorize',
+                'success' => false
+            ], 401);
         }
+        $token = explode('Bearer ', $token)[1];
 
-        return $next($request);
+        $user = User::where('api_token', $token)->first();
+        if ($user) {
+            $carbon = new Carbon();
+            $nowTime = $carbon->now()->format('Y-m-d H:i:s');
+            $checkExpiredToken = $user->expired_token < $nowTime;
+            // jika benar salah
+            if (!$checkExpiredToken) {
+                return $next($request);
+            }else {
+                return response()->json([
+                    'message' => 'Token Expired',
+                    'success' => false
+                ]);
+            }
+        }else {
+            return response()->json([
+                'message' => 'Unauthorize',
+                'success' => false
+            ], 401);
+        }
     }
 }

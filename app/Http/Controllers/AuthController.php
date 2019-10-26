@@ -41,7 +41,7 @@ class AuthController extends Controller
         $user = User::where('username', $request->username)->first();
         if ($user) {
             $token = $this->generateToken();
-            $expired_token = $carbon->now()->addHours(1)->format('Y-m-d H:i:s');
+            $expiredToken = $carbon->now()->addHours(1)->format('Y-m-d H:i:s');
             $checkPassword = app('hash')->check($request->password, $user->password);
             if ($checkPassword) {
                 $user->api_token = $token;
