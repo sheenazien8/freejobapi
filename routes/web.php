@@ -25,6 +25,13 @@ $router->group(['prefix' => 'auth'], function ($router)
 
 $router->group(['middleware' => 'authenticated'], function ($router)
 {
+    $router->get('/auth', function (\Illuminate\Http\Request $request) {
+        $token = $request->header('Authorization');
+        $token = explode('Bearer ', $token)[1];
+        return response()->json([
+            'token' => $token
+        ]);
+    });
     $router->group(['prefix' => 'company'], function ($router)
     {
         $router->get('/', ['uses' => 'CompanyController@index']);
