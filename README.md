@@ -16,10 +16,10 @@ composer install
 # config enviroment
 cp .env.example
 create random string for APP_KEY in .env (ASAsknoidfKKKjsdahaskIas)
-and finalyy setting database
+and finally setting database
 
 ```
-### run app
+### Run app
 ```php -S localhost:8000 -t public```
 
 API ready to use
