@@ -19,10 +19,10 @@ I made this take 2 day
 ## Installation
 ```bash
 # clone the project
-git clone https://gitlab.com/sheenazien8/ajobthingtest/
+git clone https://github.com/sheenazien8/freejobapi.git
 
 # enter the project directory
-cd ajobthingtest
+cd freejobapi
 
 # install dependency
 composer install
